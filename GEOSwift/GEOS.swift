@@ -184,9 +184,11 @@ public struct CoordinatesCollection: SequenceType {
     
     public func generate() -> AnyGenerator<Coordinate> {
         var index: UInt32 = 0
-        return anyGenerator {
+        return AnyGenerator {
             if index < self.count {
-                return self[index++]
+                let value = self[index]
+                index += 1
+                return value
             }
             return nil
         }
@@ -218,9 +220,11 @@ public struct GeometriesCollection<T: Geometry>: SequenceType {
     
     public func generate() -> AnyGenerator<T> {
         var index: Int32 = 0
-        return anyGenerator {
+        return AnyGenerator {
             if index < self.count {
-                return self[index++]
+                let value = self[index]
+                index += 1
+                return value
             }
             return nil
         }

@@ -7,12 +7,33 @@
 
 import Foundation
 
+public enum BufferCapStyle : Int32 {
+    case Round = 1
+    case Flat = 2
+    case Square = 3
+}
+
+public enum BufferJoinStyle : Int32 {
+    case Round = 1
+    case Mitre = 2
+    case Bevel = 3
+}
+
 /// Topological operations
 public extension Geometry {
     
+    private static let DefaultMitreValue = 5.0
+    private static let DefaultQuadSegValue : Int32 = 0
+    
     /// - returns: A Polygon that represents all points whose distance from this geometry is less than or equal to the given width.
     func buffer(width width: Double) -> Geometry? {
-        let bufferGEOM = GEOSBuffer_r(GEOS_HANDLE, self.geometry, width, 0)
+        let bufferGEOM = GEOSBuffer_r(GEOS_HANDLE, self.geometry, width, Geometry.DefaultQuadSegValue)
+        let buffer = Geometry.create(bufferGEOM, destroyOnDeinit: true)
+        return buffer
+    }
+    
+    func buffer(width width: Double, endCapStyle: BufferCapStyle, joinStyle: BufferJoinStyle) -> Geometry? {
+        let bufferGEOM = GEOSBufferWithStyle_r(GEOS_HANDLE, self.geometry, width, Geometry.DefaultQuadSegValue, endCapStyle.rawValue, joinStyle.rawValue, Geometry.DefaultMitreValue)
         let buffer = Geometry.create(bufferGEOM, destroyOnDeinit: true)
         return buffer
     }

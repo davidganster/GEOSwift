@@ -1,16 +1,21 @@
 PODS:
-  - geos (3.5.0)
+  - CocoaLumberjack (3.4.2):
+    - CocoaLumberjack/Default (= 3.4.2)
+    - CocoaLumberjack/Extensions (= 3.4.2)
+  - CocoaLumberjack/Default (3.4.2)
+  - CocoaLumberjack/Extensions (3.4.2):
+    - CocoaLumberjack/Default
 
 DEPENDENCIES:
-  - geos
+  - CocoaLumberjack
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
-    - geos
+    - CocoaLumberjack
 
 SPEC CHECKSUMS:
-  geos: e96c6ca3f3ce02d20feaa8d90d4af383e11e7198
+  CocoaLumberjack: db7cc9e464771f12054c22ff6947c5a58d43a0fd
 
-PODFILE CHECKSUM: 9197d373c58dbbe14ee536fe279eaebb1f46390d
+PODFILE CHECKSUM: cf927117c83b8a8168f856864777e69639f350e8
 
 COCOAPODS: 1.5.3

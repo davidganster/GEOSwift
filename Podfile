@@ -4,11 +4,11 @@ use_frameworks!
 inhibit_all_warnings!
 
 target 'GEOSwift' do
-  pod 'geos'
+  pod 'CocoaLumberjack'
 end
 
 target 'GEOSwiftTests' do
-  pod 'geos'
+  pod 'CocoaLumberjack'
 end
 
 # Workaround for Cocoapods issue #7606

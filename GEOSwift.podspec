@@ -18,7 +18,7 @@ DESC
   s.source       = { :git => "https://github.com/GEOSwift/GEOSwift.git", :tag => s.version }
 
   s.source_files = "GEOSwift/*.{swift,h}"
-  s.vendored_libraries = 'GEOSwift/lib/*.{dylib}'
+  s.vendored_frameworks = 'GEOSwift/lib/*.{dylib}'
   # s.dependency "geos", "3.5.0"
 
 end

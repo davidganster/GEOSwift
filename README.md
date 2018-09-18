@@ -1,10 +1,13 @@
 ![GEOSwift](/README-images/GEOSwift-header.png)  
 
-[![Build Status](https://travis-ci.org/andreacremaschi/GEOSwift.svg?branch=develop)](https://travis-ci.org/andreacremaschi/GEOSwift.svg?branch=develop)
-[![Cocoapods Compatible](https://img.shields.io/cocoapods/v/GEOSwift.svg)](https://img.shields.io/cocoapods/v/GEOSwift.svg)
+[![Build Status](https://travis-ci.org/GEOSwift/GEOSwift.svg?branch=develop)](https://travis-ci.org/GEOSwift/GEOSwift.svg?branch=develop)
+[![CocoaPods Compatible](https://img.shields.io/cocoapods/v/GEOSwift.svg)](https://img.shields.io/cocoapods/v/GEOSwift.svg)
+[![codecov](https://codecov.io/gh/GEOSwift/GEOSwift/branch/develop/graph/badge.svg)](https://codecov.io/gh/GEOSwift/GEOSwift)
 
 Easily handle a geographical object model (points, linestrings, polygons etc.) and related topographical operations (intersections, overlapping etc.).  
 A type-safe, MIT-licensed Swift interface to the OSGeo's GEOS library routines, nicely integrated with MapKit and Quicklook.
+
+> **For *MapboxGL* integration visit: https://github.com/GEOSwift/GEOSwiftMapboxGL**
 
 ## Features
 
@@ -18,9 +21,9 @@ A type-safe, MIT-licensed Swift interface to the OSGeo's GEOS library routines, 
 ## Requirements
 
 * iOS 8.0+ / Mac OS X 10.10+
-* Xcode 7.1
-* Swift 2.0+
-* CocoaPods 0.39.0+
+* Xcode 9
+* Swift 4 (For Swift 3 support use release 1.0.2 or earlier.)
+* CocoaPods 1.0.1+
 
 ## Usage
 
@@ -36,9 +39,9 @@ let WKB: NSData = geometryWKB()
 let geometry2 = Geometry.create(WKB.bytes, size: WKB.length)
 
 // 3. From a GeoJSON file:
-if let geoJSONURL = NSBundle.mainBundle().URLForResource("italy", withExtension: "geojson"),
-    let geometries = Geometry.fromGeoJSON(geoJSONURL),
-    let italy = geometries[0] as? MultiPolygon
+if let geoJSONURL = Bundle.main.url(forResource: "multipolygon", withExtension: "geojson"),
+    let features = try! Features.fromGeoJSON(geoJSONURL),
+    let italy = features.first?.geometries?.first as? MultiPolygon
 {
     italy
 }
@@ -57,9 +60,7 @@ let shape1 = point.mapShape() // will return a MKPointAnnotation
 
 Example for MapboxGL:
 
-```swift
-let shape1 = linestring.mapboxShape() // will return a MGLPolyline
-```
+For *MapboxGL* integration visit: https://github.com/GEOSwift/GEOSwiftMapboxGL
 
 In this table you can find which annotation class you should expect when calling `mapShape()` or `mapboxShape()` on a geometry:
 
@@ -73,9 +74,9 @@ In this table you can find which annotation class you should expect when calling
 | `MULTIPOLYGON` | `MultiPolygon` | `MKShapesCollection` | `not supported` |
 | `GEOMETRYCOLLECTION` | `GeometryCollection` | `MKShapesCollection` | `not supported` |
 
-Of course you should provide your implementation of the mapview delegate protocol (`MKMapViewDelegate` or `MGLMapViewDelegate`). 
+Of course you should provide your implementation of the mapview delegate protocol (`MKMapViewDelegate` or `MGLMapViewDelegate`).
 In MapKit, when dealing with geometry collections you have to define your own `MKOverlayRenderer` subclass.
-Currently geometry collections are not supported when using `MapboxGL`. 
+Currently geometry collections are not supported when using `MapboxGL`.
 
 ### Topological operations
 
@@ -97,12 +98,12 @@ GEOSwift let you perform a set of operations on these two geometries:
 * _within_: returns true if this geometric object is “spatially within” another geometry.
 * _contains_: returns true if this geometric object “spatially contains” another geometry.
 * _overlaps_: returns true if this geometric object “spatially overlaps” another geometry.
-* _relate_: returns true if this geometric object is spatially related to another geometry by testing for intersections between the interior, boundary and exterior of the two geometric objects as specified by the values in the intersectionPatternMatrix. 
+* _relate_: returns true if this geometric object is spatially related to another geometry by testing for intersections between the interior, boundary and exterior of the two geometric objects as specified by the values in the intersectionPatternMatrix.
 
 
 ### Playground
 
-Explore more, interactively, from the Xcode project’s playground.
+Explore more, interactively, from the Xcode project’s playground. It can be found inside `GEOSwift` workspace. Open the workspace on Xcode, build the `GEOSwift` framework and open the playground file.
 
 ![Playground](/README-images/playground.png)
 

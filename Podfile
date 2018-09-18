@@ -17,5 +17,14 @@ post_install do |installer|
     config.build_settings.delete('CODE_SIGNING_ALLOWED')
     config.build_settings.delete('CODE_SIGNING_REQUIRED')
   end
+
+  installer.pods_project.targets.each do |target|  
+	target.build_configurations.each do |config|  
+	  if target.name == 'geos'  
+	    # change libstdc++ to libc++
+		  config.build_settings['CLANG_CXX_LIBRARY'] = 'libc++'  
+	  end  
+	end  
+  end  
 end
 

@@ -29,7 +29,7 @@
 		CD25D7361B2732FE008B3FB3 /* MapKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD25D72C1B2732FE008B3FB3 /* MapKit.swift */; };
 		CD25D7371B2732FE008B3FB3 /* QuickLook.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD25D72D1B2732FE008B3FB3 /* QuickLook.swift */; };
 		CD25D7381B2732FE008B3FB3 /* SpatialAnalysis.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD25D72E1B2732FE008B3FB3 /* SpatialAnalysis.swift */; };
-		CD25D73E1B27364E008B3FB3 /* GEOSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = CD25D73D1B27364E008B3FB3 /* GEOSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CD25D73E1B27364E008B3FB3 /* GEOSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = CD25D73D1B27364E008B3FB3 /* GEOSwift.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		CD2DE39E1B396FF400E7BCD4 /* feature.geojson in Resources */ = {isa = PBXBuildFile; fileRef = CDA09FFB1B3968B00092C6C6 /* feature.geojson */; };
 		CD2DE39F1B39750200E7BCD4 /* multipolygon.geojson in Resources */ = {isa = PBXBuildFile; fileRef = CDB71B3B1B16210C0044B3DD /* multipolygon.geojson */; };
 		CD2DE3A01B39750200E7BCD4 /* geometrycollection.geojson in Resources */ = {isa = PBXBuildFile; fileRef = CDB0A9D51B21A5FD00AB2F46 /* geometrycollection.geojson */; };
@@ -1759,8 +1759,9 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EFAF0BC2215116D500537F3F /* SinglePassNoder.h in Headers */,
 				EFAF092F2151128100537F3F /* geos_c.h in Headers */,
+				CD25D73E1B27364E008B3FB3 /* GEOSwift.h in Headers */,
+				EFAF0BC2215116D500537F3F /* SinglePassNoder.h in Headers */,
 				EFAF0C2F215116D500537F3F /* PrecisionReducerCoordinateOperation.h in Headers */,
 				EFAF0C25215116D500537F3F /* NodeMap.h in Headers */,
 				EFAF0B4D215116D500537F3F /* EdgeSetIntersector.h in Headers */,
@@ -1835,7 +1836,6 @@
 				EFAF0B60215116D500537F3F /* geomgraph.h in Headers */,
 				EFAF0ADE215116D500537F3F /* HCoordinate.h in Headers */,
 				EFAF0C45215116D500537F3F /* TriangleVisitor.h in Headers */,
-				CD25D73E1B27364E008B3FB3 /* GEOSwift.h in Headers */,
 				EFAF0C3E215116D500537F3F /* IncrementalDelaunayTriangulator.h in Headers */,
 				EFAF0BFF215116D500537F3F /* RectangleContains.h in Headers */,
 				EFAF0BB2215116D500537F3F /* NodedSegmentString.h in Headers */,

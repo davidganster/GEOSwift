@@ -22,6 +22,9 @@ public enum BufferJoinStyle : Int32 {
 /// Topological operations
 public extension Geometry {
 
+    private static let DefaultMitreValue = 5.0
+    private static let DefaultQuadSegValue : Int32 = 0
+    
     /**
      - returns: A Polygon that represents all points whose distance from this geometry is less than or equal to the
                 given width.
@@ -31,12 +34,10 @@ public extension Geometry {
         return Geometry.create(storage: GeometryStorage(GEOSGeom: bufferGEOM, parent: nil))
     }
     
-    func buffer(width width: Double, endCapStyle: BufferCapStyle, joinStyle: BufferJoinStyle) -> Geometry? {
-        let bufferGEOM = GEOSBufferWithStyle_r(GEOS_HANDLE, self.geometry, width, Geometry.DefaultQuadSegValue, endCapStyle.rawValue, joinStyle.rawValue, Geometry.DefaultMitreValue)
-        let buffer = Geometry.create(bufferGEOM, destroyOnDeinit: true)
-        return buffer
+    func buffer(width: Double, endCapStyle: BufferCapStyle, joinStyle: BufferJoinStyle) -> Geometry? {
+        guard let bufferGEOM = GEOSBufferWithStyle_r(GEOS_HANDLE, storage.GEOSGeom, width, Geometry.DefaultQuadSegValue, endCapStyle.rawValue, joinStyle.rawValue, Geometry.DefaultMitreValue) else { return nil }
+        return Geometry.create(storage: GeometryStorage(GEOSGeom: bufferGEOM, parent: nil))
     }
-
 
     /// - returns: The smallest Polygon that contains all the points in the geometry.
     func convexHull() -> Polygon? {

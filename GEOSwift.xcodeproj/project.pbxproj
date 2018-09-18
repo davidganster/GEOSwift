@@ -42,15 +42,15 @@
 		CDB7EC051B287CE70055835C /* MapKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB7EC041B287CE70055835C /* MapKitTests.swift */; };
 		D36407561F7D0155001BBA46 /* multipolygonwithholes.geojson in Resources */ = {isa = PBXBuildFile; fileRef = D36407551F7D0155001BBA46 /* multipolygonwithholes.geojson */; };
 		DA312B501383705279D8884F /* Pods_GEOSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7BE8B8564B5063CCA6CC117 /* Pods_GEOSwift.framework */; };
-		EFAF09242151122300537F3F /* libgeos-3.5.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EFAF09202151122300537F3F /* libgeos-3.5.0.dylib */; };
+		EF8A099821513427000FD323 /* geos_c.h in Headers */ = {isa = PBXBuildFile; fileRef = EFAF092D2151128100537F3F /* geos_c.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		EFA53BB82151354000E72678 /* libgeos-3.5.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EFAF09202151122300537F3F /* libgeos-3.5.0.dylib */; };
+		EFA53BB92151354000E72678 /* libgeos.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EFAF09212151122300537F3F /* libgeos.dylib */; };
+		EFA53BBA2151354000E72678 /* libgeos_c.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EFAF09222151122300537F3F /* libgeos_c.1.dylib */; };
+		EFA53BBB2151354000E72678 /* libgeos_c.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EFAF09232151122300537F3F /* libgeos_c.dylib */; };
 		EFAF09252151122300537F3F /* libgeos-3.5.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EFAF09202151122300537F3F /* libgeos-3.5.0.dylib */; };
-		EFAF09262151122300537F3F /* libgeos.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EFAF09212151122300537F3F /* libgeos.dylib */; };
 		EFAF09272151122300537F3F /* libgeos.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EFAF09212151122300537F3F /* libgeos.dylib */; };
-		EFAF09282151122300537F3F /* libgeos_c.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EFAF09222151122300537F3F /* libgeos_c.1.dylib */; };
 		EFAF09292151122300537F3F /* libgeos_c.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EFAF09222151122300537F3F /* libgeos_c.1.dylib */; };
-		EFAF092A2151122300537F3F /* libgeos_c.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EFAF09232151122300537F3F /* libgeos_c.dylib */; };
 		EFAF092B2151122300537F3F /* libgeos_c.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EFAF09232151122300537F3F /* libgeos_c.dylib */; };
-		EFAF092F2151128100537F3F /* geos_c.h in Headers */ = {isa = PBXBuildFile; fileRef = EFAF092D2151128100537F3F /* geos_c.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EFAF0AD0215116D500537F3F /* Angle.h in Headers */ = {isa = PBXBuildFile; fileRef = EFAF0933215116D400537F3F /* Angle.h */; };
 		EFAF0AD1215116D500537F3F /* BoundaryNodeRule.h in Headers */ = {isa = PBXBuildFile; fileRef = EFAF0934215116D400537F3F /* BoundaryNodeRule.h */; };
 		EFAF0AD2215116D500537F3F /* CentralEndpointIntersector.h in Headers */ = {isa = PBXBuildFile; fileRef = EFAF0935215116D400537F3F /* CentralEndpointIntersector.h */; };
@@ -900,10 +900,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA312B501383705279D8884F /* Pods_GEOSwift.framework in Frameworks */,
-				EFAF09282151122300537F3F /* libgeos_c.1.dylib in Frameworks */,
-				EFAF09262151122300537F3F /* libgeos.dylib in Frameworks */,
-				EFAF092A2151122300537F3F /* libgeos_c.dylib in Frameworks */,
-				EFAF09242151122300537F3F /* libgeos-3.5.0.dylib in Frameworks */,
+				EFA53BB82151354000E72678 /* libgeos-3.5.0.dylib in Frameworks */,
+				EFA53BB92151354000E72678 /* libgeos.dylib in Frameworks */,
+				EFA53BBA2151354000E72678 /* libgeos_c.1.dylib in Frameworks */,
+				EFA53BBB2151354000E72678 /* libgeos_c.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -966,6 +966,8 @@
 		CD2299851B10B506002C19AE /* GEOSwift */ = {
 			isa = PBXGroup;
 			children = (
+				EFAF092D2151128100537F3F /* geos_c.h */,
+				EFAF091F2151122300537F3F /* lib */,
 				CD25D73D1B27364E008B3FB3 /* GEOSwift.h */,
 				BF7C38071F82F03D001509AF /* Feature.swift */,
 				CD25D7251B2732FE008B3FB3 /* GeoJSON.swift */,
@@ -1016,7 +1018,6 @@
 		CD6533A81B0E0DFF00DE6D84 = {
 			isa = PBXGroup;
 			children = (
-				EFAF091F2151122300537F3F /* lib */,
 				CD2299851B10B506002C19AE /* GEOSwift */,
 				CD2299941B10B506002C19AE /* GEOSwiftTests */,
 				CD6533B21B0E0DFF00DE6D84 /* Products */,
@@ -1038,7 +1039,6 @@
 			isa = PBXGroup;
 			children = (
 				EFAF0931215116D400537F3F /* geos */,
-				EFAF092D2151128100537F3F /* geos_c.h */,
 				EFAF092C2151128100537F3F /* geos.h */,
 				EFAF09202151122300537F3F /* libgeos-3.5.0.dylib */,
 				EFAF09212151122300537F3F /* libgeos.dylib */,
@@ -1759,8 +1759,8 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EFAF092F2151128100537F3F /* geos_c.h in Headers */,
 				CD25D73E1B27364E008B3FB3 /* GEOSwift.h in Headers */,
+				EF8A099821513427000FD323 /* geos_c.h in Headers */,
 				EFAF0BC2215116D500537F3F /* SinglePassNoder.h in Headers */,
 				EFAF0C2F215116D500537F3F /* PrecisionReducerCoordinateOperation.h in Headers */,
 				EFAF0C25215116D500537F3F /* NodeMap.h in Headers */,
@@ -2392,7 +2392,7 @@
 			baseConfigurationReference = 7D7DCB36E4FE6316A656A43A /* Pods-GEOSwift.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
-				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -2410,13 +2410,13 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				HEADER_SEARCH_PATHS = lib/;
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = GEOSwift/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/lib",
+					"$(PROJECT_DIR)/GEOSwift/lib",
 				);
 				OTHER_CFLAGS = (
 					"$(inherited)",
@@ -2446,7 +2446,7 @@
 			baseConfigurationReference = FF90076F32D911E63EE5ACA5 /* Pods-GEOSwift.release.xcconfig */;
 			buildSettings = {
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
-				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
@@ -2459,13 +2459,13 @@
 					"$(inherited)",
 					"\"$PODS_CONFIGURATION_BUILD_DIR/CocoaLumberjack\"",
 				);
-				HEADER_SEARCH_PATHS = lib/;
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = GEOSwift/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/lib",
+					"$(PROJECT_DIR)/GEOSwift/lib",
 				);
 				OTHER_CFLAGS = (
 					"$(inherited)",
@@ -2506,7 +2506,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/lib",
+					"$(PROJECT_DIR)/GEOSwift/lib",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "it.andreacremaschi.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2529,7 +2529,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/lib",
+					"$(PROJECT_DIR)/GEOSwift/lib",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "it.andreacremaschi.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";

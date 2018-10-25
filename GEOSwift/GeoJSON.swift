@@ -297,7 +297,7 @@ private func GEOJSONCoordinatesFromArrayRepresentation(_ array: [[Double]]) -> [
 }
 
 private func GEOJSONSequenceFromArrayRepresentation(_ representation: [[Double]]) -> OpaquePointer? {
-    if let coordinates = GEOJSONCoordinatesFromArrayRepresentation(representation) {
+    if let coordinates = GEOJSONCoordinatesFromArrayRepresentation(representation), coordinates.count > 0 {
         let sequence = GEOSCoordSeq_create_r(GEOS_HANDLE, UInt32(coordinates.count), 2)
         for (index, coord) in coordinates.enumerated() {
             if (GEOSCoordSeq_setX_r(GEOS_HANDLE, sequence, UInt32(index), coord.x) == 0) ||

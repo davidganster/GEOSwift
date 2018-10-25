@@ -288,8 +288,11 @@ private func GEOJSONGeometryFromDictionaryRepresentation(_ dictionary: [String: 
 }
 
 private func GEOJSONCoordinatesFromArrayRepresentation(_ array: [[Double]]) -> [Coordinate]? {
-    return array.map { coordinatePair in
-        Coordinate(x: coordinatePair[0], y: coordinatePair[1])
+    return array.compactMap { coordinatePair in
+        if coordinatePair.count != 2 {
+            return nil
+        }
+        return Coordinate(x: coordinatePair[0], y: coordinatePair[1])
     }
 }
 
